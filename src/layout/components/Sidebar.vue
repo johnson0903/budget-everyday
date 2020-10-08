@@ -3,23 +3,6 @@
     class="app-sidebar"
     width="200px"
   >
-    <!-- <el-menu>
-      <el-menu-item index="1">
-        <template slot="title">
-          <i class="el-icon-notebook-1" />月記帳本
-        </template>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <template slot="title">
-          <i class="el-icon-money" />帳戶管理
-        </template>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <template slot="title">
-          <i class="el-icon-pie-chart" />圖表分析
-        </template>
-      </el-menu-item>
-    </el-menu> -->
     <el-menu
       :default-active="activeIndex"
       @select="handleItemSelect"

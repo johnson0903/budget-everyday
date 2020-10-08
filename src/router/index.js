@@ -12,19 +12,19 @@ const routes = [
       {
         path: '/billing',
         name: 'billing',
-        component: () => import('../views/Billing'),
+        component: () => import('../views/Billing/'),
         meta: { title: '月記帳本', icon: 'el-icon-notebook-1' }
       },
       {
         path: '/account',
         name: 'account',
-        component: () => import('../views/Account'),
+        component: () => import('../views/Account/'),
         meta: { title: '帳戶管理', icon: 'el-icon-money' }
       },
       {
         path: '/charts',
         name: 'charts',
-        component: () => import('../views/Charts'),
+        component: () => import('../views/Charts/'),
         meta: { title: '圖表分析', icon: 'el-icon-pie-chart' }
       }
     ]
