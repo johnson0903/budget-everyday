@@ -9,14 +9,22 @@ export default new Vuex.Store({
     expenseData: expenseData
   },
   mutations: {
-    addExpenseData (state, expense) {
-      state.expenseData.push(expense)
+    addExpenseData (state, data) {
+      state.expenseData.push(data)
+    },
+    editExpenseData (state, { index, data }) {
+      if (state.expenseData[index]) {
+        state.expenseData.splice(index, 1, data)
+      }
+    },
+    deleteExpenseData (state, index) {
+      if (state.expenseData[index]) {
+        state.expenseData.splice(index, 1)
+      }
     }
   },
   actions: {
-    addExpense ({ commit }, expense) {
-      commit('addExpenseData', expense)
-    }
+
   },
   modules: {
   }

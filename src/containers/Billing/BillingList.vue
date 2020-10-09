@@ -53,6 +53,14 @@ export default {
     ...mapState({
       expenseData: state => state.expenseData
     })
+  },
+  methods: {
+    handleEdit (index, data) {
+      this.$emit('edit', { index, data })
+    },
+    handleDelete (index) {
+      this.$store.commit('deleteExpenseData', index)
+    }
   }
 }
 </script>
