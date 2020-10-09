@@ -9,8 +9,14 @@ export default new Vuex.Store({
     expenseData: expenseData
   },
   mutations: {
+    addExpenseData (state, expense) {
+      state.expenseData.push(expense)
+    }
   },
   actions: {
+    addExpense ({ commit }, expense) {
+      commit('addExpenseData', expense)
+    }
   },
   modules: {
   }
