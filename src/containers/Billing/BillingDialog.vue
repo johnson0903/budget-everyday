@@ -1,15 +1,9 @@
 <template>
   <div class="ct_billing_dialog">
-    <el-button
-      class="ct_billing_dialog__btn-add"
-      type="primary"
-      @click="dialogFormVisible = true"
-    >
-      新增紀錄
-    </el-button>
     <el-dialog
       title="新增紀錄"
       :visible.sync="dialogFormVisible"
+      @close="handleClose"
     >
       <el-form
         :model="form"
@@ -17,7 +11,7 @@
       >
         <el-form-item label="金額">
           <el-input
-            v-model.number="form.dollor"
+            v-model.number="form.dollar"
             placeholder="請輸入金額"
             autocomplete="off"
           />
@@ -77,7 +71,7 @@
         </el-button>
         <el-button
           type="primary"
-          @click="dialogFormVisible = false"
+          @click="handleSubmit"
         >
           儲存
         </el-button>
@@ -89,15 +83,63 @@
 <script>
 export default {
   name: 'BillingDialog',
+  props: {
+    showDialog: {
+      type: Boolean,
+      required: true
+    },
+    dialogData: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {
       form: {
-        dollor: '',
+        dollar: '',
         type: '',
         title: '',
         account: ''
       },
       dialogFormVisible: false
+    }
+  },
+  watch: {
+    showDialog: function (newValue) {
+      if (newValue) {
+        this.dialogFormVisible = true
+        if (this.dialogData.action === 'ADD') {
+          this.form = {
+            dollar: 0,
+            type: '',
+            title: '',
+            account: ''
+          }
+        } else {
+          this.form = { ...this.dialogData.data }
+        }
+      }
+    }
+  },
+  methods: {
+    handleSubmit () {
+      if (this.dialogData.action === 'ADD') {
+        this.$store.commit('addExpenseData', this.form)
+      } else {
+        this.$store.commit('editExpenseData', { index: this.dialogData.index, data: this.form })
+      }
+
+      this.dialogFormVisible = false
+    },
+    handleClose () {
+      this.$emit('close')
+      this.dialogFormVisible = false
+      this.form = {
+        dollar: '',
+        type: '',
+        title: '',
+        account: ''
+      }
     }
   }
 }
