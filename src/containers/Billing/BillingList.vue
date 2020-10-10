@@ -1,6 +1,7 @@
 <template>
   <el-card id="ct_billing_list">
     <el-table
+      v-loading="isLoading"
       :data="expenseData"
       stripe
     >
@@ -48,10 +49,20 @@
 import { mapState } from 'vuex'
 export default {
   name: 'BillingList',
-
+  data () {
+    return {
+      isLoading: false
+    }
+  },
   computed: {
     ...mapState({
       expenseData: state => state.expenseData
+    })
+  },
+  mounted () {
+    this.isLoading = true
+    this.$store.dispatch('getExpenseDataFromDB').then(() => {
+      this.isLoading = false
     })
   },
   methods: {
