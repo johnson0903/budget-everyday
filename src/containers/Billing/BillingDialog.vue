@@ -123,6 +123,7 @@ export default {
   },
   methods: {
     handleSubmit () {
+      console.log(123)
       if (this.dialogData.action === 'ADD') {
         this.$store.commit('addExpenseData', this.form)
       } else {
