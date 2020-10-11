@@ -10,6 +10,7 @@ export default new Vuex.Store({
     expenseData: []
   },
   mutations: {
+
     setExpenseData (state, expenseData) {
       state.expenseData = expenseData
     },
@@ -42,5 +43,14 @@ export default new Vuex.Store({
     }
   },
   modules: {
+  },
+  getters: {
+    totalExpense: state => {
+      let total = 0
+      for (let i = 0; i < state.expenseData.length; i++) {
+        total += state.expenseData[i].dollar
+      }
+      return total
+    }
   }
 })

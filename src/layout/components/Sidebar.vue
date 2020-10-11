@@ -10,6 +10,7 @@
       <template v-for="menuItem in menuList">
         <el-menu-item
           :key="menuItem.name"
+          class="menu-item"
           :index="menuItem.name"
         >
           <i :class="['app-sidebar__icon', `${menuItem.meta.icon}`]" />
@@ -32,19 +33,27 @@ export default {
     menuList () {
       return this.$router.options.routes[0].children
     }
+
   },
   methods: {
     handleItemSelect (index) {
       if (this.activeIndex !== index) {
         this.activeIndex = index
-        this.$route.push({ name: index })
+        this.$router.push({ name: index })
       }
     }
   }
 }
 </script>
 <style lang="scss">
+.el-menu {
+  border: none;
+}
   .app-sidebar {
+    .menu-item {
+      border-radius: 10px;
+    }
+    padding: 10px 10px;
     &__icon {
       margin-right: 0.75rem;
     }

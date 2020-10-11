@@ -9,23 +9,22 @@
     >
       新增紀錄
     </el-button>
-    <BillingDialog
+    <OverviewDialog
       :show-dialog="showDialog"
       :dialog-data="dialogData"
       @close="closeDialog"
     />
-    <BillingCalendar />
-    <BillingList @edit="handleEdit" />
+    <OverviewList @edit="handleEdit" />
   </div>
 </template>
 
 <script>
-import BillingCalendar from '@/containers/Billing/BillingCalendar'
-import BillingList from '@/containers/Billing/BillingList'
-import BillingDialog from '@/containers/Billing/BillingDialog'
+// import OverviewCalendar from '@/containers/Overview/OverviewCalendar'
+import OverviewList from '@/containers/Overview/OverviewList'
+import OverviewDialog from '@/containers/Overview/OverviewDialog'
 export default {
-  name: 'Billing',
-  components: { BillingCalendar, BillingList, BillingDialog },
+  name: 'Overview',
+  components: { OverviewList, OverviewDialog },
   data () {
     return {
       showDialog: false,
@@ -63,10 +62,10 @@ export default {
 </script>
 
 <style lang="scss">
-  .pg-billing {
-    &__btn-add {
-      display: block;
-      margin-left: auto;
-    }
-  }
+  // .pg-billing {
+  //   &__btn-add {
+  //     display: block;
+  //     margin-left: auto;
+  //   }
+  // }
 </style>

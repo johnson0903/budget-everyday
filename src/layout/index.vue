@@ -1,9 +1,9 @@
 <template>
   <el-container class="app-layout">
     <Sidebar />
-    <el-container>
+    <el-container class="app-main">
       <Header />
-      <el-main class="app-main">
+      <el-main>
         <slot />
       </el-main>
     </el-container>
@@ -20,20 +20,17 @@ export default {
 </script>
 <style>
   .app-layout {
-    width: 100%;
+    /* width: 100%; */
+    height: 100vh;
     margin: 0;
   }
   .app-main {
-    position: absolute;
-    top: 60px;
+    background-color: #212529;
+    flex-direction: column;
   }
-  .el-header {
-    background-color: #b3c0d1;
-    color: #333;
-    line-height: 60px;
-  }
+
   .el-aside {
-    color: #333;
     height: 100%;
+    background-color: #272B2F;
   }
 </style>

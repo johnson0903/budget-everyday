@@ -42,11 +42,12 @@
         </template>
       </el-table-column>
     </el-table>
+    {{ totalExpense }}
   </el-card>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'BillingList',
   data () {
@@ -57,7 +58,8 @@ export default {
   computed: {
     ...mapState({
       expenseData: state => state.expenseData
-    })
+    }),
+    ...mapGetters(['totalExpense'])
   },
   mounted () {
     this.isLoading = true

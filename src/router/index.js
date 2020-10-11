@@ -10,22 +10,22 @@ const routes = [
     component: () => import('../views/Home'),
     children: [
       {
-        path: '/billing',
-        name: 'billing',
-        component: () => import('../views/Billing/'),
-        meta: { title: '月記帳本', icon: 'el-icon-notebook-1' }
+        path: '/overview',
+        name: 'overview',
+        component: () => import('../views/Overview/'),
+        meta: { title: 'Overview', icon: 'el-icon-menu' }
       },
       {
-        path: '/account',
-        name: 'account',
-        component: () => import('../views/Account/'),
-        meta: { title: '帳戶管理', icon: 'el-icon-money' }
+        path: '/budget',
+        name: 'budget',
+        component: () => import('../views/Budget/'),
+        meta: { title: 'Budget', icon: 'el-icon-money' }
       },
       {
-        path: '/charts',
-        name: 'charts',
-        component: () => import('../views/Charts/'),
-        meta: { title: '圖表分析', icon: 'el-icon-pie-chart' }
+        path: '/report',
+        name: 'report',
+        component: () => import('../views/Report/'),
+        meta: { title: 'Report', icon: 'el-icon-s-data' }
       }
     ]
   }
