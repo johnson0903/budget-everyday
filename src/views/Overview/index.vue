@@ -15,6 +15,7 @@
       @close="closeDialog"
     />
     <OverviewList @edit="handleEdit" />
+    <BudgetCalendar />
   </div>
 </template>
 
@@ -22,9 +23,10 @@
 // import OverviewCalendar from '@/containers/Overview/OverviewCalendar'
 import OverviewList from '@/containers/Overview/OverviewList'
 import OverviewDialog from '@/containers/Overview/OverviewDialog'
+import BudgetCalendar from '@/containers/Budget/BudgetCalendar'
 export default {
   name: 'Overview',
-  components: { OverviewList, OverviewDialog },
+  components: { OverviewList, OverviewDialog, BudgetCalendar },
   data () {
     return {
       showDialog: false,
